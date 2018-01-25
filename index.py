@@ -44,8 +44,17 @@ def img_show(img):
 
 print("Loading file")
 ld_set = load_file()
+
+"""
 print(ld_set['tr_label'][0])
 img = ld_set['tr_img'][0]
 img = img.reshape(28, 28)
-
 img_show(img)
+"""
+# Create csv files
+np.savetxt("trlabel.csv", ld_set["tr_label"], delimiter=",")
+np.savetxt("tslabel.csv", ld_set["ts_label"], delimiter=",")
+ld_set["ts_img"].tofile("tsimg.csv", sep=",")
+ld_set["tr_img"].tofile("trimg.csv", sep=",")
+print("Created csv files")
+
