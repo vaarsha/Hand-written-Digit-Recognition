@@ -27,17 +27,11 @@ def file_init():
     d_set['ts_label'] = conversion('t10k-labels-idx1-ubyte.gz')
 
     print("Converted to numpy")
-    with open('dset.pickle','wb') as f:
-        pickle.dump(d_set, f, -1)
-
-    print("Created new file dset.pickle")
+    return d_set
 
 def load_file():
 
-    file_init()
-
-    with open('dset.pickle', 'rb') as f:
-        d_set = pickle.load(f)
+    d_set = file_init()
 
     for key in ('tr_img', 'ts_img'):
         d_set[key] = d_set[key].reshape(-1, 1, 28, 28)
