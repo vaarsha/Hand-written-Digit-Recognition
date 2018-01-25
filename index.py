@@ -40,8 +40,6 @@ def load_file():
         d_set = pickle.load(f)
 
     for key in ('tr_img', 'ts_img'):
-        #d_set[key] = d_set[key].astype(np.float32)
-        #d_set[key] /= 255.0
         d_set[key] = d_set[key].reshape(-1, 1, 28, 28)
 
     return d_set
