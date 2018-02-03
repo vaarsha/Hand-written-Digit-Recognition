@@ -34,9 +34,9 @@ model = LogisticRegression()
 model.fit(x_val, x_lb)
 print(model)
 
-predict = model.predict(x_val)
+predict = model.predict(y_val)
 print(predict)
 
-print(metrics.classification_report(x_lb, predict))
-print(metrics.confusion_matrix(x_lb, predict))
-print(metrics.accuracy_score(x_lb, predict))
+print(metrics.classification_report(y_lb, predict))
+print(metrics.confusion_matrix(y_lb, predict))
+print(metrics.accuracy_score(y_lb, predict))
