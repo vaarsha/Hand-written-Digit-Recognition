@@ -15,6 +15,7 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 from sklearn import model_selection
+import matplotlib.pyplot as plt
 
 #dataset_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
 #names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
@@ -31,20 +32,29 @@ x_tr, x_ts, y_tr, y_ts = train_test_split(x, y, test_size=0.2,
 rs = []
 nm = []
 
-def model_pr(name, model):
+def model_pr(fname, name, model):
     model.fit(x_tr, y_tr)
     y_pred = model.predict(x_ts)
     res = accuracy_score(y_ts, y_pred)
-    rs.append(res)
+    rs.append(res*100)
     nm.append(name)
-    print(name, "%.3f"%res)
+    print(fname, "%.3f"%res)
     print(confusion_matrix(y_ts, y_pred))
     print(classification_report(y_ts, y_pred))
 
-model_pr("Logistic Regression", LogisticRegression())
-model_pr("Naive Bayes", GaussianNB())
-model_pr("Classification and Regression Trees", DecisionTreeClassifier())
-model_pr("Support Vector Machines", SVC())
-model_pr("K-Nearest Neighbors", KNeighborsClassifier())
-model_pr("Linear Discriminant Analysis", LinearDiscriminantAnalysis())
-#cm = confusion_matrix(y_ts, y_pred)
+model_pr("Logistic Regression", "LR", LogisticRegression())
+model_pr("Naive Bayes", "NB", GaussianNB())
+model_pr("Classification and Regression Trees", "CR", DecisionTreeClassifier())
+model_pr("Support Vector Machines", "SVM", SVC())
+model_pr("K-Nearest Neighbors", "KNN", KNeighborsClassifier())
+model_pr("Linear Discriminant Analysis", "LDA", LinearDiscriminantAnalysis())
+
+# Plotting graph
+y_axis = np.arange(len(nm))
+
+plt.bar(y_axis, rs, align='center')
+plt.xticks(y_axis, nm)
+plt.ylabel("Accuracy Score")
+plt.title("Model Comparisons")
+
+plt.show()
