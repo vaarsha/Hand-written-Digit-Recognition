@@ -4,6 +4,8 @@ from pandas.tools.plotting import scatter_matrix
 import pandas as pd
 import numpy as np
 from sklearn import metrics
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
 
 dataset = pd.read_csv('test_iris.csv', sep=r'\t')
 target = pd.read_csv('train_iris.csv', sep=r'\t')
@@ -35,8 +37,8 @@ model.fit(x_val, x_lb)
 print(model)
 
 predict = model.predict(y_val)
-print(predict)
 
+print("Logistic Regression\n")
 print(metrics.classification_report(y_lb, predict))
 print(metrics.confusion_matrix(y_lb, predict))
 print(metrics.accuracy_score(y_lb, predict))
