@@ -5,7 +5,7 @@ from sklearn import preprocessing
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import mean_squared_error, r2_score, confusion_matrix
+from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.externals import joblib
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
@@ -38,6 +38,8 @@ def model_pr(name, model):
     rs.append(res)
     nm.append(name)
     print(name, "%.3f"%res)
+    print(confusion_matrix(y_ts, y_pred))
+    print(classification_report(y_ts, y_pred))
 
 model_pr("Logistic Regression", LogisticRegression())
 model_pr("Naive Bayes", GaussianNB())
@@ -46,14 +48,3 @@ model_pr("Support Vector Machines", SVC())
 model_pr("K-Nearest Neighbors", KNeighborsClassifier())
 model_pr("Linear Discriminant Analysis", LinearDiscriminantAnalysis())
 #cm = confusion_matrix(y_ts, y_pred)
-
-"""
-kfold = model_selection.KFold(n_splits=10, random_state=7)
-rs = cross_val_score(model, x_tr, y_tr, cv = kfold, scoring =
-        'accuracy')
-print(rs)
-
-scaler = preprocessing.StandardScaler().fit(x_tr)
-x_tr_scale = scaler.transform(x_tr)
-x_ts_scale = scaler.transform(x_ts)
-"""
