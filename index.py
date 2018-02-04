@@ -51,9 +51,7 @@ img = ld_set['tr_img'][0]
 img = img.reshape(28, 28)
 img_show(img)
 """
-
-np.savetxt("trlabel.csv", ld_set["tr_label"], delimiter=",")
-np.savetxt("tslabel.csv", ld_set["ts_label"], delimiter=",")
-ld_set["tr_img"].tofile("trimg.csv", sep=",")
-ld_set["ts_img"].tofile("tsimg.csv", sep=",")
-print("Created csv files")
+print("saving to a dataset.pkl")
+fl = open('dataset.pkl','wb')
+pickle.dump(ld_set, fl)
+fl.close()
