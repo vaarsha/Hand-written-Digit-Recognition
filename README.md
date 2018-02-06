@@ -8,8 +8,13 @@ Test examples: 10000
 
 Following Supervised Learning Techniques were applied:
 > Random Forest
+
 > Logistic Regression
+
 > Gaussian Naïve Bayes
+
 > Decision Trees
+
 > K-Nearest Neighbor
+
 > Linear Discriminant Analysis
