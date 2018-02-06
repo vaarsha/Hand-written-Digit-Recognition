@@ -1,8 +1,8 @@
 # Hand-written-Digit-Recognition
 This is a LITG Project.
 
-MNIST Dataset is used.
-It is a dataset of handwritten digits.
+MNIST Dataset is used.<br>
+It is a dataset of handwritten digits.<br>
 Training examples: 60000
 Test examples: 10000
 
