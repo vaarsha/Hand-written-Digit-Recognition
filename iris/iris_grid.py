@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
@@ -8,7 +7,6 @@ from sklearn.svm import SVC
 from sklearn import model_selection
 import matplotlib.pyplot as plt
 from sklearn import metrics
-
 
 data = pd.read_csv('test.csv', sep=r'\t')
 
