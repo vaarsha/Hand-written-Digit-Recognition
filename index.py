@@ -21,10 +21,10 @@ def conversion(fl):
 
 def file_init():
     d_set = {}
-    d_set['tr_img'] = conversion('train-images-idx3-ubyte.gz')
-    d_set['tr_label'] = conversion('train-labels-idx1-ubyte.gz')
-    d_set['ts_img'] = conversion('t10k-images-idx3-ubyte.gz')
-    d_set['ts_label'] = conversion('t10k-labels-idx1-ubyte.gz')
+    d_set['tr_img'] = conversion('datasets/train-images-idx3-ubyte.gz')
+    d_set['tr_label'] = conversion('datasets/train-labels-idx1-ubyte.gz')
+    d_set['ts_img'] = conversion('datasets/t10k-images-idx3-ubyte.gz')
+    d_set['ts_label'] = conversion('datasets/t10k-labels-idx1-ubyte.gz')
 
     print("Converted to numpy")
     return d_set
